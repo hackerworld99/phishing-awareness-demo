@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Security Awareness Simulation</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f6f9;
+    color: #1f2937;
+}
+
+.top {
+    background: #0f6cbd;
+    height: 5px;
+}
+
+.card {
+    max-width: 850px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 12px;
+    padding: 42px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: #fff4ce;
+    color: #5f4200;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 20px 0 12px;
+}
+
+h2 {
+    margin-top: 32px;
+}
+
+.lead {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+.clicked {
+    margin: 28px 0;
+    padding: 18px;
+    border-left: 5px solid #107c10;
+    background: #f1faf1;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Interactive cards */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.item {
+    border: 1px solid #d9dee5;
+    border-radius: 10px;
+    padding: 18px;
+    background: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-color: #0f6cbd;
+}
+
+.item strong {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.item .short {
+    color: #4b5563;
+}
+
+.explanation {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 7px;
+    background: #f3f7fb;
+    color: #374151;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.item.active .explanation {
+    display: block;
+}
+
+.click-hint {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.footer {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+@media (max-width: 650px) {
+
+    .card {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top"></div>
+
+<main class="card">
+
+    <span class="badge">
+        SECURITY AWARENESS SIMULATION
+    </span>
+
+    <h1>
+        ⚠️ This was a phishing simulation
+    </h1>
+
+    <p class="lead">
+        You clicked the link in a simulated password-expiry email.
+        No password, MFA code, or other credentials were requested or collected.
+    </p>
+
+    <div class="clicked">
+        ✓ Link click detected — awareness exercise triggered successfully.
+    </div>
+
+
+    <h2>
+        What made the message suspicious?
+    </h2>
+
+    <p class="lead">
+        Click each item below to see why it is a common phishing warning sign.
+    </p>
+
+
+    <div class="grid">
+
+        <!-- URGENCY -->
+
+        <div class="item" onclick="toggleCard(this)">
+
+            <strong>
+                ⏱ Urgency
+            </strong>
+
+            <div class="short">
+                "Your password expires in 2 days."
+            </div>
+
+            <div class="click-hint">
+                Click to learn more
+            </div>
+
+            <div class="explanation">
+                Attackers often create a deadline or sense of urgency.
+                This can make people act quickly without checking the
+                sender or destination of the link.
+            </div>
+
+        </div>
+
+
+        <!-- TRUSTED BRAND -->
+
+        <div class="item" onclick="toggleCard(this)">
+
+            <strong>
+                🏢 Trusted brand
+            </strong>
+
+            <div class="short">
+                The message referenced Microsoft 365.
+            </div>
+
+            <div class="click-hint">
+                Click to learn more
+            </div>
+
+            <div class="explanation">
+                Phishing messages frequently impersonate services that
+                employees already trust, such as Microsoft 365, Google,
+                banks, or internal IT teams.
+            </div>
+
+        </div>
+
+
+        <!-- CALL TO ACTION -->
+
+        <div class="item" onclick="toggleCard(this)">
+
+            <strong>
+                🔗 Call to action
+            </strong>
+
+            <div class="short">
+                You were asked to click a password-related link.
+            </div>
+
+            <div class="click-hint">
+                Click to learn more
+            </div>
+
+            <div class="explanation">
+                Unexpected requests to click links, open attachments,
+                reset passwords, approve MFA requests, or make payments
+                should be treated carefully.
+            </div>
+
+        </div>
+
+
+        <!-- VERIFY -->
+
+        <div class="item" onclick="toggleCard(this)">
+
+            <strong>
+                🔎 Verify first
+            </strong>
+
+            <div class="short">
+                Check where the link actually goes.
+            </div>
+
+            <div class="click-hint">
+                Click to learn more
+            </div>
+
+            <div class="explanation">
+                Before signing in, verify the destination and the
+                context of the request. When in doubt, open the service
+                through your normal company bookmark or application
+                instead of using the email link.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h2>
+        What should you do next time?
+    </h2>
+
+    <p class="lead">
+        Stop and verify before clicking. Check the sender, inspect the
+        destination, and consider whether you were actually expecting
+        the request.
+    </p>
+
+    <div class="footer">
+
+        Internal Security Awareness Exercise<br><br>
+
+        ✓ No credentials collected<br>
+        ✓ No password requested<br>
+        ✓ No MFA information collected
+
+    </div>
+
+</main>
+
+
+<script>
+
+function toggleCard(card) {
+
+    card.classList.toggle("active");
+
+}
+
+</script>
+
+</body>
+</html>
